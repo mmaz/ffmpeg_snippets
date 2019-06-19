@@ -1,4 +1,4 @@
-# ffmpeg_snippets
+## ffmpeg_snippets
 
 * Shrink and trim
 
@@ -8,6 +8,20 @@ bump up the CRF for smaller files:
 ffmpeg -ss 00:00:00 -t 00:03:00 -i "input.mp4" -c:v libx264 -preset slow -crf 24 -an -pix_fmt yuv420p output_small.mp4
 ```
 
+* Cropping
+
+https://video.stackexchange.com/a/4571
+
+```bash
+ffmpeg -i in.mp4 -filter:v "crop=out_w:out_h:x:y" out.mp4
+-filter:v "crop=700:700:0:60" out.mp4 # for example
+# To crop the bottom right quarter
+ffmpeg -i in.mp4 -filter:v "crop=in_w/2:in_h/2:in_w/2:in_h/2" -c:a copy out.mp4
+# equivalently:
+ffmpeg -i in.mp4 -filter:v "crop=320/2:240/2:320/2:240/2" -c:a copy out.mp4
+```
+
+
 ## Gnome screenshot
 
 `Shift` + `Print Screen` for a portion of the window
@@ -16,7 +30,7 @@ ffmpeg -ss 00:00:00 -t 00:03:00 -i "input.mp4" -c:v libx264 -preset slow -crf 24
 
 `Ctrl` + `Shift` + `Alt` + `R` to start and stop
 
-Change default length:
+Change default length (`sudo` **not** necessary):
 
 ```bash
 gsettings set org.gnome.settings-daemon.plugins.media-keys max-screencast-length 45
