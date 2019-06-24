@@ -21,6 +21,14 @@ ffmpeg -i in.mp4 -filter:v "crop=in_w/2:in_h/2:in_w/2:in_h/2" -c:a copy out.mp4
 ffmpeg -i in.mp4 -filter:v "crop=320/2:240/2:320/2:240/2" -c:a copy out.mp4
 ```
 
+* [video from images](https://stackoverflow.com/questions/24961127/how-to-create-a-video-from-images-with-ffmpeg)
+
+60FPS: 
+
+```
+ffmpeg -framerate 60 -pattern_type glob -i '*.png' -c:v libx264 -pix_fmt yuv420p out.mp4
+```
+
 
 ## Gnome screenshot
 
