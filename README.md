@@ -29,6 +29,13 @@ ffmpeg -i in.mp4 -filter:v "crop=320/2:240/2:320/2:240/2" -c:a copy out.mp4
 ffmpeg -framerate 60 -pattern_type glob -i '*.png' -c:v libx264 -pix_fmt yuv420p out.mp4
 ```
 
+* [Add text](https://stackoverflow.com/a/17624103)
+
+```
+ffmpeg -i input.mp4 -vf drawtext="/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf: \
+text='Stack Overflow': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: \
+boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy output.mp4
+```
 
 ## Gnome screenshot
 
