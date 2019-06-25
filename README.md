@@ -39,6 +39,18 @@ text='Stack Overflow': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: 
 boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy output.mp4
 ```
 
+## chain cropping and text: [link](https://trac.ffmpeg.org/wiki/FilteringGuide#FiltergraphChainFilterrelationship)
+
+Separate filters in a -vf chain with a `,`: 
+
+```bash
+ffmpeg -i input.webm \
+-vf crop=809:616:37:63,drawtext="/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf: \
+text='My Text': fontcolor=white: fontsize=18: box=1: boxcolor=black@0.5: \
+boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/8" \
+-c:v libx264  -preset veryslow -crf 22  -pix_fmt yuv420p out.mp4
+```
+
 # Screen recording
 
 ## Gnome screenshot
