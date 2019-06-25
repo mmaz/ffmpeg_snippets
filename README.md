@@ -1,6 +1,6 @@
-## ffmpeg_snippets
+# ffmpeg_snippets
 
-* Shrink and trim
+## Shrink and trim
 
 bump up the CRF for smaller files:
 
@@ -8,7 +8,7 @@ bump up the CRF for smaller files:
 ffmpeg -ss 00:00:00 -t 00:03:00 -i "input.mp4" -c:v libx264 -preset slow -crf 24 -an -pix_fmt yuv420p output_small.mp4
 ```
 
-* Cropping
+## Cropping
 
 https://video.stackexchange.com/a/4571
 
@@ -21,7 +21,7 @@ ffmpeg -i in.mp4 -filter:v "crop=in_w/2:in_h/2:in_w/2:in_h/2" -c:a copy out.mp4
 ffmpeg -i in.mp4 -filter:v "crop=320/2:240/2:320/2:240/2" -c:a copy out.mp4
 ```
 
-* [video from images](https://stackoverflow.com/questions/24961127/how-to-create-a-video-from-images-with-ffmpeg)
+## [video from images](https://stackoverflow.com/questions/24961127/how-to-create-a-video-from-images-with-ffmpeg)
 
 60FPS: 
 
@@ -29,13 +29,15 @@ ffmpeg -i in.mp4 -filter:v "crop=320/2:240/2:320/2:240/2" -c:a copy out.mp4
 ffmpeg -framerate 60 -pattern_type glob -i '*.png' -c:v libx264 -pix_fmt yuv420p out.mp4
 ```
 
-* [Add text](https://stackoverflow.com/a/17624103)
+## [Add text](https://stackoverflow.com/a/17624103)
 
 ```
 ffmpeg -i input.mp4 -vf drawtext="/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf: \
 text='Stack Overflow': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: \
 boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy output.mp4
 ```
+
+# Screen recording
 
 ## Gnome screenshot
 
