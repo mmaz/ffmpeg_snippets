@@ -31,6 +31,8 @@ ffmpeg -framerate 60 -pattern_type glob -i '*.png' -c:v libx264 -pix_fmt yuv420p
 
 ## add text: [link](https://stackoverflow.com/a/17624103)
 
+**note:** text can't contain `:` (at least, not unescaped) 
+
 ```
 ffmpeg -i input.mp4 -vf drawtext="/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf: \
 text='Stack Overflow': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: \
