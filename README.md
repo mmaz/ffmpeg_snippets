@@ -35,8 +35,17 @@ ffmpeg -framerate 60 -pattern_type glob -i '*.png' -c:v libx264 -pix_fmt yuv420p
 
 ```
 ffmpeg -i input.mp4 -vf drawtext="/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf: \
-text='Stack Overflow': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: \
+text='example': fontcolor=white: fontsize=24: box=1: boxcolor=black@0.5: \
 boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/2" -codec:a copy output.mp4
+```
+
+## chain image sequence and text
+
+```bash
+ffmpeg -framerate 10 -pattern_type glob -i '*.png' \
+-vf drawtext="/usr/share/fonts/truetype/ubuntu/Ubuntu-B.ttf: \
+text='hello world': fontcolor=white: fontsize=18: box=1: boxcolor=black@0.5: \
+boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/8" -c:v libx264  -preset veryslow -crf 22  -pix_fmt yuv420p ../videoname.mp4
 ```
 
 ## chain cropping and text: [link](https://trac.ffmpeg.org/wiki/FilteringGuide#FiltergraphChainFilterrelationship)
