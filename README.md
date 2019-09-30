@@ -8,6 +8,15 @@ bump up the CRF for smaller files:
 ffmpeg -ss 00:00:00 -t 00:03:00 -i "input.mp4" -c:v libx264 -preset slow -crf 24 -an -pix_fmt yuv420p output_small.mp4
 ```
 
+## Change playback speed
+
+Trim video, and slow video down by 7x [[wiki](https://trac.ffmpeg.org/wiki/How%20to%20speed%20up%20/%20slow%20down%20a%20video)]
+
+```bash
+fmpeg -ss 00:00:00 -t 00:00:10 -i input.mp4 -c:v libx264 -filter:v "setpts=7*PTS" -preset slow -crf 26 -an -pix_fmt yuv420p output.mp4
+```
+
+
 ## Cropping
 
 https://video.stackexchange.com/a/4571
