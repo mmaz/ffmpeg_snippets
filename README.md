@@ -77,7 +77,7 @@ boxborderw=5: x=(w-text_w)/2: y=(h-text_h)/8" \
 ffmpeg -video_size 1024x768 -framerate 10 -f x11grab -i :1.0+0,0 -c:v libx264 -an -pix_fmt yuv420p output.mp4
 ```
 
-* `:1` is the dislpay ID
+* `:1` is the display ID
 * Width and height are determined by `-video_size`
 * Offset is determined by `+x,y`
 * [Docs](https://trac.ffmpeg.org/wiki/Capture/Desktop)
