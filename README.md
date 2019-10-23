@@ -1,12 +1,20 @@
 # ffmpeg_snippets
 
-## Shrink and trim
+## Shrink filesize and trim
 
 bump up the CRF for smaller files:
 
 ```
 ffmpeg -ss 00:00:00 -t 00:03:00 -i "input.mp4" -c:v libx264 -preset slow -crf 24 -an -pix_fmt yuv420p output_small.mp4
 ```
+
+## Reduce resolution
+
+```
+ -vf scale=640:360
+```
+
+[More details here](https://trac.ffmpeg.org/wiki/Scaling)
 
 ## Change playback speed
 
