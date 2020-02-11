@@ -24,6 +24,13 @@ Trim video, and slow video down by 7x [[wiki](https://trac.ffmpeg.org/wiki/How%2
 fmpeg -ss 00:00:00 -t 00:00:10 -i input.mp4 -c:v libx264 -filter:v "setpts=7*PTS" -preset slow -crf 26 -an -pix_fmt yuv420p output.mp4
 ```
 
+## Make gif: [link](https://superuser.com/questions/556029/how-do-i-convert-a-video-to-gif-using-ffmpeg-with-reasonable-quality)
+
+`setpts` speeds up video, `scale` for width, and `-loop 0` for infinite looping.
+
+```bash
+ffmpeg -i input.mp4 -vf "setpts=0.3*PTS,fps=10,scale=400:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+```
 
 ## Cropping
 
