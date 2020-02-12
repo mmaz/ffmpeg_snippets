@@ -31,7 +31,7 @@ fmpeg -ss 00:00:00 -t 00:00:10 -i input.mp4 -c:v libx264 -filter:v "setpts=7*PTS
 *todo:* chaining in a speedup command, e.g., `-vf "setpts=0.3*PTS,fps=10,...` does not seem to play well with looping.
 
 ```bash
-ffmpeg -i input.mp4 -vf "setpts=0.3*PTS,fps=10,scale=400:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
+ffmpeg -i input.mp4 -vf "fps=10,scale=400:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
 ```
 
 ## Cropping
