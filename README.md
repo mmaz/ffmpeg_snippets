@@ -11,7 +11,8 @@ ffmpeg -ss 00:00:00 -t 00:03:00 -i "input.mp4" -c:v libx264 -preset slow -crf 24
 ## Reduce resolution
 
 ```
- -vf scale=640:360
+ -vf scale=640:360         # exactly
+ -vf "scale=iw*0.8:ih*0.8" # by percentage
 ```
 
 [More details here](https://trac.ffmpeg.org/wiki/Scaling)
