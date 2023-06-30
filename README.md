@@ -35,6 +35,14 @@ fmpeg -ss 00:00:00 -t 00:00:10 -i input.mp4 -c:v libx264 -filter:v "setpts=7*PTS
 ffmpeg -i input.mp4 -vf "fps=10,scale=400:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" -loop 0 output.gif
 ```
 
+## make a gif directly from images
+
+https://unix.stackexchange.com/a/489210 (the `-r 4` flag apparently decimates the images, going from 60/sec to 15 per sec, ignored below)
+
+```bash
+ffmpeg -framerate 0.5 -pattern_type glob -i "*.png"  out.gif
+```
+
 ## Cropping
 
 https://video.stackexchange.com/a/4571
